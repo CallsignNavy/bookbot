@@ -5,7 +5,7 @@ def get_book_text(filepath):
 	return file_contents
 
 #pull from stats.py
-from stats import get_num_words
+from stats import get_word_count
 
 #print the number of words from the book in a string response
 def main():
