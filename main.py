@@ -5,16 +5,27 @@ def get_book_text(filepath):
 	return file_contents
 
 #pull from stats.py
-from stats import get_word_count
-
-from stats import get_char_count
+from stats import (
+	get_word_count, 
+	get_char_count,
+	char_sort
+)
 
 #print the number of words from the book in a string response
 def main():
 	book_text = get_book_text("books/frankenstein.txt")
 	total_words = get_word_count(book_text)
-	print(f"{total_words} words found in the document")
-	print(get_char_count(book_text))
+	char_counts = get_char_count(book_text)
+	chars_sorted_list = char_sort(char_counts)
+	print("============ BOOKBOT ============")
+	print("Analyzing book found at books/frankenstein.txt...")
+	print("----------- Word Count ----------")
+	print(f"Found {total_words} total words")
+	print("--------- Character Count -------")
+	for item in chars_sorted_list:
+		print(f"{item['char']}: {item['num']}")
+	print("============= END ===============")
+
 main()
 
 
